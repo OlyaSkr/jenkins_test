@@ -26,6 +26,12 @@ pipeline {
             steps {
                 echo 'Deploying...'
                 bat 'deploy.bat'
+               
+                script {
+                    def htmlContent = readFile(file: 'index.html')
+                    echo "Contents of index.html:"
+                    echo htmlContent
+                }
             }
         }
     }
